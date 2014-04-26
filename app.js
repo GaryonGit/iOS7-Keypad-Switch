@@ -19,7 +19,7 @@ shift = "spring(800,35,1200)"
 
 // Set opacity of Keypad
 PSD.Hide.opacity = 0;
-PSD.hidePressed.opacity = 1;
+PSD.hidePressed.opacity = 0;
 PSD.One.opacity = 0;
 PSD.Two.opacity = 0;
 PSD.Three.opacity = 0;
@@ -259,16 +259,14 @@ PSD["elapsedCallTime"].animate({properties:{y:shiftBackEllapsed}, curve: shift})
 PSD["hangUp"].animate({properties:{y:shiftBackHangUp}, curve: shift})
 }
 
-
-
-
-
 //================================================================
 // Call time - Loops every 30 seconds
 //================================================================
 
 utils.delay(0, callTimer)
 utils.interval(1000*31, callTimer)
+
+
 
 //================================================================
 // onSelect Functions
@@ -294,7 +292,7 @@ PSD.keypad.on("touchend", function() {
 
 PSD.Hide.on("touchstart", function() { 
 	PSD.hidePressed.visible = true; 
-	PSD.Hide.visible = false;
+	PSD.Hide.visible = true;
 })
 
 PSD.Hide.on("touchend", function() { 
@@ -304,6 +302,7 @@ PSD.Hide.on("touchend", function() {
 	showOptions();
 	shiftBack ();
 })
+
 
 
 
